@@ -2,7 +2,24 @@ import React from "react";
 import { actors } from "../data";
 
 function Actors() {
-  return <div>{/*{code here}*/}</div>;
+  const actorsList = actors.map((act)=> {
+    const moviesList = (act.movies).map((mov) => 
+    <li key={Math.floor(Math.random() *(1000 - 100)) + 100}>
+      {mov}
+    </li>)
+    return(
+      <>
+        <h1>{act.name}</h1>
+        <ul>{moviesList}</ul>
+      </>
+    )
+  })
+  return (
+      <div>
+      <h1>Actors</h1>
+        {actorsList}
+      </div>
+    );
 }
 
 export default Actors;
